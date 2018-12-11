@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+{% if registersuccess %}
+<div class="alert alert-success alert-dismissible fade show" style="z-index: 99999;left: 50%;transform: translateX(-50%);position: fixed;"
+    role="alert">
+    <h4 class="alert-heading">Cadastro realizado com sucesso!</h4>
+    <p>Fique de olho na data de início do seu curso, ou logue no Trainme que lhe informaremos quantos dias faltam!</p>
+    <hr>
+    <p class="mb-0">Se precisar de algo fale conosco através da aba <a style="all: unset; cursor: pointer;" href="{% url 'contato' %}"><b>Contato</b></a></p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
+<div style="position: relative;">
+    <div style="text-align: center; height: 105px; width: 115px;position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0;">
+        <div style="background-color: rgba(0,0,0,0.7); border-radius: 2rem; height: 127px;">
+            <img style="padding: 5px;" src="{% static 'assets/TrainmeLogo.png' %}"></img>
+        </div>
+    </div>
+    <img style="width: 100%; height: 200px;" src="{% static 'assets/banner.jpg' %}" />
+</div>
+<div class="content">
+    {% if request.user.is_authenticated == False or request.user.is_authenticated and request.user.profile.classname == 'Gastronomia' %}
+    <div class="pure-g-r content-ribbon">
+        <div class="pure-u-2-3">
+            <div class="l-box">
+                <a href="{% url 'login' %}?curso=gastronomia">
+                    <h4 class="content-subhead">Gastronomia</h4>
+                </a>
+                <h3>Seja um expert em fazer aquilo que mais ama!</h3>
+                <p>
+                    Com o SSDriving sua empresa pode solicitar retiradas de lotes de produtos, tendo contato por meio
+                    de
+                    bots inteligentes para que não tenha a necessidade de fazer os agendamentos e cotações manualmente.
+                    Com isso
+                    sua empresa terá além processo logístico mais ágil e transparete...
+                </p>
+                <p><b><em>
+                            Carga Hor&aacute;ria: 3.300 horas<br />
+                            Data de In&iacute;cio: 01/01/2019<br />
+                            Dias da Semana: SEG TER QUA QUI SEX</em>
+                        {% if request.user.is_authenticated %}<br /><br />
+                        <label style="color: orange;">Início do curso: {{ classtimeleft }}.</label>{% endif %}
+                    </b></p>
+            </div>
+        </div>
+        <div class="pure-u-1-3">
+            <div class="l-box">
+                <iframe width="420" height="220" src="https://www.youtube.com/embed/sjjXSgxViJk">
+                </iframe>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% if request.user.is_authenticated == False or request.user.is_authenticated and request.user.profile.classname == 'Enfermagem' %}
+    <div class="pure-g-r content-ribbon">
+        <div class="pure-u-1-3">
+            <div class="l-box">
+                <iframe width="420" height="220" src="https://www.youtube.com/embed/ch7kAz8yd2o">
+                </iframe>
+            </div>
+        </div>
+        <div class="pure-u-2-3">
+            <div class="l-box">
+                <a href="{% url 'login' %}?curso=enfermagem">
+                    <h4 class="content-subhead">Enfermagem</h4>
+                </a>
+                <h3>A vida em primeiro lugar</h3>
+                <p>
+                    “A Enfermagem é uma arte e para realizá-la como tal requer uma devoção tão exclusiva,
+                    um preparo tão rigoroso, quanto à obra de qualquer pintor ou escultor, pois o que é
+                    tratar da tela morte ou do frio mármore comparado ao tratar do corpo vivo, o templo
+                    do espírito de Deus? É uma das artes, poder-se-ia dizer, a mais bela das artes!”
+                    (Florença Nightingale)
+                </p>
+                <p><b><em>
+                            Carga Hor&aacute;ria: 4.000 horas<br />
+                            Data de In&iacute;cio: 01/01/2019<br />
+                            Dias da Semana: SEG TER QUA QUI SEX<br />
+                            {% if request.user.is_authenticated %}<br /><br />
+                            <label style="color: orange;">Início do curso: {{ classtimeleft }}.</label>{% endif %}
+                        </em>
+                    </b></p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% if request.user.is_authenticated == False or request.user.is_authenticated and request.user.profile.classname == 'Farmácia' %}
+    <div class="pure-g-r content-ribbon">
+        <div class="pure-u-2-3">
+            <div class="l-box">
+                <a href="{% url 'login' %}?curso=farmacia">
+                    <h4 class="content-subhead">Farmácia</h4>
+                </a>
+                <h3>Nobre soldado</h3>
+                <p>
+                    O papel do Farmacêutico no mundo é tão nobre quão vital. O Farmacêutico representa
+                    o órgão de ligação entre a medicina e a humanidade sofredora. É o atento guardião
+                    do arsenal de armas com que o Médico dá combate às doenças. É quem atende às
+                    requisições a qualquer hora do dia ou da noite. O lema do Farmacêutico é o mesmo do soldado:
+                    servir.
+                </p>
+                <p><b><em>
+                            Carga Hor&aacute;ria: 3.500 horas<br />
+                            Data de In&iacute;cio: 01/01/2019<br />
+                            Dias da Semana: SEG TER QUA QUI SEX</em>
+                        {% if request.user.is_authenticated %}<br /><br />
+                        <label style="color: orange;">Início do curso: {{ classtimeleft }}.</label>{% endif %}
+                    </b></p>
+            </div>
+        </div>
+        <div class="pure-u-1-3">
+            <div class="l-box">
+                <iframe width="420" height="220" src="https://www.youtube.com/embed/q5pIqzbQfw8">
+                </iframe>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% if request.user.is_authenticated == False or request.user.is_authenticated and request.user.profile.classname == 'Desenvolvimento de Software' %}
+    <div class="pure-g-r content-ribbon">
+        <div class="pure-u-1-3">
+            <div class="l-box">
+                <iframe width="420" height="220" src="https://www.youtube.com/embed/ekRuFlsxEeo">
+                </iframe>
+            </div>
+        </div>
+        <div class="pure-u-2-3">
+            <div class="l-box">
+                <a href="{% url 'login' %}?curso=software">
+                    <h4 class="content-subhead">Desenvolvimento de software</h4>
+                </a>
+                <h3>Construindo sonhos!</h3>
+                <p>
+                    É fato que ter uma empresa significa pensar toda uma logística de funcionamento.
+                    Desde montar a equipe até a parte administrativa, são muitos os processos
+                    envolvidos nesse contexto. Porém, essa pode ser uma tarefa ainda mais difícil
+                    quando não se tem uma tecnologia que atenda às necessidades organizacionais.
+                    E, para resolver isso, é essencial ter um desenvolvedor de sistemas.
+                </p>
+                <p><b><em>
+                            Carga Hor&aacute;ria: 3.200 horas<br />
+                            Data de In&iacute;cio: 01/01/2019<br />
+                            Dias da Semana: SEG TER QUA QUI SEX</em>
+                        {% if request.user.is_authenticated %}<br /><br />
+                        <label style="color: orange;">Início do curso: {{ classtimeleft }}.</label>{% endif %}
+                    </b></p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% if request.user.is_authenticated == False or request.user.is_authenticated and request.user.profile.classname == 'Administração' %}
+    <div class="pure-g-r content-ribbon">
+        <div class="pure-u-2-3">
+            <div class="l-box">
+                <a href="{% url 'login' %}?curso=admin">
+                    <h4 class="content-subhead">Administração</h4>
+                </a>
+                <h3>Mapa para o futuro</h3>
+                <p>
+                    O mundo já acontece no futuro: como entender o presente, como se reinventar rapidamente e como se
+                    comunicar
+                </p>
+                <p><b><em>
+                            Carga Hor&aacute;ria: 3.000 horas<br />
+                            Data de In&iacute;cio: 01/01/2019<br />
+                            Dias da Semana: SEG TER QUA QUI SEX</em>
+                        {% if request.user.is_authenticated %}<br /><br />
+                        <label style="color: orange;">Início do curso: {{ classtimeleft }}.</label>{% endif %}
+                    </b></p>
+            </div>
+        </div>
+        <div class="pure-u-1-3">
+            <div class="l-box">
+                <iframe width="420" height="220" src="https://www.youtube.com/embed/PoJ_9VkSLBQ">
+                </iframe>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+    function login(location) {
+        window.location = location;
+    }
+</script>
+{% endblock %}

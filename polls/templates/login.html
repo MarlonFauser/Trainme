@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form-1" style="padding: 5%;">
+            <h3>Login</h3>
+            <form action="{% url 'login'%}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input name="email" type="email" class="form-control" placeholder="Email *" value="" required />
+                </div>
+                <div class="form-group">
+                    <input name="password" type="password" class="form-control" placeholder="Senha *" value="" required />
+                </div>
+                <div class="form-group">
+                    <input name="login" type="submit" class="btnSubmit" value="Login" />
+                </div>
+            </form>
+            {% if loginerrormessage %}
+            <div class="alert alert-danger" role="alert">{{ loginerrormessage }}</div>
+            {% endif %}
+            <div class="form-group">
+                <a href="#" class="btnForgetPwd">Esqueceu a senha?</a>
+            </div>
+        </div>
+        <div class="col-md-6 login-form-2" style="padding: 5%;">
+            <h3>Cadastre-se</h3>
+            <form action="{% url 'login'%}" method="POST">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input id="name" name="name" type="text" class="form-control" placeholder="Nome *" value=""
+                            required />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input id="birthdate" name="birthdate" max="2018-12-31" style="height: 38px;" type="date"
+                            placeholder="Data nasc. *" onClick="$(this).removeClass('placeholderclass')" class="dateclass placeholderclass form-control"
+                            required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input id="email" name="email" type="email" class="form-control" placeholder="Email *" value=""
+                        required />
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input id="phone" name="phone" type="tel" class="form-control" placeholder="Telefone" value=""
+                            required />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="form-group">
+                            <select class="form-control" name="classname" id="classname" required>
+                                <option value="" {{ curso }} disabled> -- Curso -- </option>
+                                <option value="Gastronomia" {{ gastronomia }}>Gastronomia</option>
+                                <option value="Enfermagem" {{ enfermagem }}>Enfermagem</option>
+                                <option value="Farmácia" {{ farmacia }}>Farmácia</option>
+                                <option value="Desenvolvimento de Software" {{ software }}>Desenvolvimento de Software</option>
+                                <option value="Administração" {{ admin }}>Administração</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input id="password" name="password" type="password" class="form-control" placeholder="Senha *"
+                        value="" required />
+                </div>
+                <!-- <div class="form-group">
+                    <input name="confirmPassword" type="password" class="form-control" placeholder="Repita Sua Senha *" value="" />
+                </div> -->
+                <div class="form-group">
+                    <input name="register" type="submit" class="btnSubmit" value="Confirmar" />
+                </div>
+                {% if registererrormessage %}
+                <div class="alert alert-warning" role="alert">{{ registererrormessage }}</div>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+<script>
+    var birthDate = document.getElementById("birthdate");
+
+    if (birthDate) {
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+        today = yyyy + '-' + mm + '-' + dd;
+        birthDate.setAttribute("max", today);
+    }
+</script>
+
+{% endblock %}
