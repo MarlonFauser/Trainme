@@ -25,7 +25,7 @@
 <div class="content">
     {% if request.user.is_authenticated == False or request.user.is_authenticated and request.user.profile.classname == 'Gastronomia' %}
     <div class="pure-g-r content-ribbon">
-        <div class="pure-u-2-3">
+        <div class="pure-u-2-3" style="width: 65%;">
             <div class="l-box">
                 <a href="{% url 'login' %}?curso=gastronomia">
                     <h4 class="content-subhead">Gastronomia</h4>
@@ -47,9 +47,9 @@
                     </b></p>
             </div>
         </div>
-        <div class="pure-u-1-3">
-            <div class="l-box">
-                <iframe width="420" height="220" src="https://www.youtube.com/embed/sjjXSgxViJk">
+        <div class="pure-u-1-3" style="display: contents;">
+            <div class="l-box" style="width: 34%; min-width: 310px; min-height: 300px; padding: 30px;">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/sjjXSgxViJk">
                 </iframe>
             </div>
         </div>
@@ -57,13 +57,13 @@
     {% endif %}
     {% if request.user.is_authenticated == False or request.user.is_authenticated and request.user.profile.classname == 'Enfermagem' %}
     <div class="pure-g-r content-ribbon">
-        <div class="pure-u-1-3">
-            <div class="l-box">
-                <iframe width="420" height="220" src="https://www.youtube.com/embed/ch7kAz8yd2o">
+        <div class="pure-u-1-3" style="display: contents;">
+            <div class="l-box" style="width: 34%; min-width: 310px; min-height: 300px; padding: 30px;">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ch7kAz8yd2o">
                 </iframe>
             </div>
         </div>
-        <div class="pure-u-2-3">
+        <div class="pure-u-2-3" style="width: 65%;">
             <div class="l-box">
                 <a href="{% url 'login' %}?curso=enfermagem">
                     <h4 class="content-subhead">Enfermagem</h4>
@@ -90,7 +90,7 @@
     {% endif %}
     {% if request.user.is_authenticated == False or request.user.is_authenticated and request.user.profile.classname == 'Farmácia' %}
     <div class="pure-g-r content-ribbon">
-        <div class="pure-u-2-3">
+        <div class="pure-u-2-3" style="width: 65%;">
             <div class="l-box">
                 <a href="{% url 'login' %}?curso=farmacia">
                     <h4 class="content-subhead">Farmácia</h4>
@@ -112,9 +112,9 @@
                     </b></p>
             </div>
         </div>
-        <div class="pure-u-1-3">
-            <div class="l-box">
-                <iframe width="420" height="220" src="https://www.youtube.com/embed/q5pIqzbQfw8">
+        <div class="pure-u-1-3" style="display: contents;">
+            <div class="l-box" style="width: 34%; min-width: 310px; min-height: 300px; padding: 30px;">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/q5pIqzbQfw8">
                 </iframe>
             </div>
         </div>
@@ -122,13 +122,13 @@
     {% endif %}
     {% if request.user.is_authenticated == False or request.user.is_authenticated and request.user.profile.classname == 'Desenvolvimento de Software' %}
     <div class="pure-g-r content-ribbon">
-        <div class="pure-u-1-3">
-            <div class="l-box">
-                <iframe width="420" height="220" src="https://www.youtube.com/embed/ekRuFlsxEeo">
+        <div class="pure-u-1-3" style="display: contents;">
+            <div class="l-box" style="width: 34%; min-width: 310px; min-height: 300px; padding: 30px;">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ekRuFlsxEeo">
                 </iframe>
             </div>
         </div>
-        <div class="pure-u-2-3">
+        <div class="pure-u-2-3" style="width: 65%;">
             <div class="l-box">
                 <a href="{% url 'login' %}?curso=software">
                     <h4 class="content-subhead">Desenvolvimento de software</h4>
@@ -154,7 +154,7 @@
     {% endif %}
     {% if request.user.is_authenticated == False or request.user.is_authenticated and request.user.profile.classname == 'Administração' %}
     <div class="pure-g-r content-ribbon">
-        <div class="pure-u-2-3">
+        <div class="pure-u-2-3" style="width: 65%;">
             <div class="l-box">
                 <a href="{% url 'login' %}?curso=admin">
                     <h4 class="content-subhead">Administração</h4>
@@ -173,9 +173,9 @@
                     </b></p>
             </div>
         </div>
-        <div class="pure-u-1-3">
-            <div class="l-box">
-                <iframe width="420" height="220" src="https://www.youtube.com/embed/PoJ_9VkSLBQ">
+        <div class="pure-u-1-3" style="display: contents;">
+            <div class="l-box" style="width: 34%; min-width: 310px; min-height: 300px; padding: 30px;">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/PoJ_9VkSLBQ">
                 </iframe>
             </div>
         </div>
